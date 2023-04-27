@@ -10,7 +10,7 @@ global:
     cloudProvider: AWS
     storageClassName: ""
     region: us-east-2
-    clustername: jr-mddemo
+    clustername: jr-411demo
     domain: blueprints.rhecoeng.com
 
   xraylab:
