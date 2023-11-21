@@ -234,6 +234,10 @@
           "type": "boolean",
           "description": "If set to true the values is used to identify whether this is the hub cluster or an edge/spoke cluster configuration."
         },
+        "sharedValueFiles": {
+            "type": "array",
+            "description": "Templated value file paths."
+	},
         "namespaces": {
           "type": "array",
           "description": "This is the array of namespaces that the VP framework will create.  In addition, operator groups will also be created for each namespace.",
@@ -258,6 +262,13 @@
         "operatorgroupExcludes": {
           "type": "array",
           "description": "List of namespaces to exclude the creation of operator groups.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "operatorgroupExcludeTargetNS": {
+          "type": "array",
+          "description": "Specify the list of namespaces where the target namespace field in the corresponding operatorgroup object should be excluded.",
           "items": {
             "type": "string"
           }
