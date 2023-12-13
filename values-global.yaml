@@ -10,7 +10,7 @@ global:
     cloudProvider: AWS
     storageClassName: gp3-csi
     region: us-west-2
-    clustername: mdtest
+    clustername: md414
     domain: aws.validatedpatterns.io
 
   xraylab:
