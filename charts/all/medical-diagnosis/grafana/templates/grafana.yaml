@@ -11,8 +11,7 @@ spec:
     envFrom:
       - secretRef:
           name: grafana-creds
-  ingress:
-    enabled: true
+  route: {}
   config:
     auth:
       disable_signout_menu: "true"
