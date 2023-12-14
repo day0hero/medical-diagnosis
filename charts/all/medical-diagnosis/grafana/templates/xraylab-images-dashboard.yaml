@@ -9,6 +9,9 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
   json: |
     {
       "annotations": {
