@@ -9,16 +9,29 @@ metadata:
     dashboards: "grafana"
 spec:
   deployment:
-    skipCreateAdminAccount: true
-    envFrom:
-      - secretRef:
-          name: grafana-creds
+    spec:
+      deployment:
+        template:
+          spec:
+            containers:
+              - name: grafana
+                env:
+                  - name: GF_SECURITY_ADMIN_USER
+                    valueFrom:
+                      secretKeyRef:
+                        key: GF_SECURITY_ADMIN_USER
+                        name: grafana-creds
+                  - name: GF_SECURITY_ADMIN_PASSWORD
+                    valueFrom:
+                      secretKeyRef:
+                        key: GF_SECURITY_ADMIN_PASSWORD
+                        name: grafana-creds 
   route: {}
   config:
     auth:
       disable_signout_menu: "true"
-    auth.anonymous:
-      enabled: "true"
+      anonymous:
+        enabled: "true"
     log:
       level: warn
       mode: console
