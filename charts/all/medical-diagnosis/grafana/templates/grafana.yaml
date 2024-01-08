@@ -30,8 +30,8 @@ spec:
   config:
     auth:
       disable_signout_menu: "true"
-      anonymous:
-        enabled: "true"
+    auth.anonymous:
+      enabled: "true"
     log:
       level: warn
       mode: console
