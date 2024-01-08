@@ -9,7 +9,7 @@ spec:
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
-  datasources:
+  datasource:
     - type: {{ .Values.dataSources.type }}
       name: {{ .Values.dataSources.name }}
       access: {{ .Values.dataSources.access }}
