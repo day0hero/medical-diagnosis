@@ -26,7 +26,8 @@ spec:
                       secretKeyRef:
                         key: GF_SECURITY_ADMIN_PASSWORD
                         name: grafana-creds 
-  route: {}
+  route:
+    spec: {}
   config:
     auth:
       disable_signout_menu: "true"
