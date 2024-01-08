@@ -15,7 +15,7 @@ spec:
         - -c
         - |
           #!/usr/bin/env bash
-          SECRET=$(oc get secret | grep grafana-serviceaccount-token | head -n1 | awk '{print $1}')
+          SECRET=$(oc get secret | grep xraylab-grafana-sa-token | head -n1 | awk '{print $1}')
           TOKEN=$(oc extract secret/$SECRET --keys=token --to=-)
           cat <<EOF | oc create -f -
            apiVersion: grafana.integreatly.org/v1beta1
@@ -43,6 +43,5 @@ spec:
         name: get-grafana-token
       dnsPolicy: ClusterFirst
       restartPolicy: Never
-      serviceAccount: grafana-serviceaccount
-      serviceAccountName: grafana-serviceaccount
+      serviceAccount: xraylab-grafana-sa
       terminationGracePeriodSeconds: 60
