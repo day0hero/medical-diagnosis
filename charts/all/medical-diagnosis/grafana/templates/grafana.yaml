@@ -35,9 +35,3 @@ spec:
     log:
       level: warn
       mode: console
-  dashboardLabelSelector:
-    - matchExpressions:
-        - key: app
-          operator: In
-          values:
-            - grafana
