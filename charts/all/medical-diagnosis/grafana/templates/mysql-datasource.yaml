@@ -10,12 +10,12 @@ spec:
     matchLabels:
       dashboards: "grafana"
   datasource:
-    - type: {{ .Values.dataSources.type }}
-      name: {{ .Values.dataSources.name }}
-      access: {{ .Values.dataSources.access }}
-      url: ${GF_DATASRC_URL}
-      database: ${GF_DATASRC_DB}
-      user: ${GF_DATASRC_USER}
-      secureJsonData:
-        password: ${GF_DATASRC_PASSWORD}
+    type: {{ .Values.dataSources.type }}
+    name: {{ .Values.dataSources.name }}
+    access: {{ .Values.dataSources.access }}
+    url: ${GF_DATASRC_URL}
+    database: ${GF_DATASRC_DB}
+    user: ${GF_DATASRC_USER}
+    secureJsonData:
+      password: ${GF_DATASRC_PASSWORD}
   name: mysql-grafana-datasource.yaml
