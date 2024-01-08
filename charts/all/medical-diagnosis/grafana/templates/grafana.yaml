@@ -10,22 +10,21 @@ metadata:
 spec:
   deployment:
     spec:
-      deployment:
-        template:
-          spec:
-            containers:
-              - name: grafana
-                env:
-                  - name: GF_SECURITY_ADMIN_USER
-                    valueFrom:
-                      secretKeyRef:
-                        key: GF_SECURITY_ADMIN_USER
-                        name: grafana-creds
-                  - name: GF_SECURITY_ADMIN_PASSWORD
-                    valueFrom:
-                      secretKeyRef:
-                        key: GF_SECURITY_ADMIN_PASSWORD
-                        name: grafana-creds 
+      template:
+        spec:
+          containers:
+            - name: grafana
+              env:
+                - name: GF_SECURITY_ADMIN_USER
+                  valueFrom:
+                    secretKeyRef:
+                      key: GF_SECURITY_ADMIN_USER
+                      name: grafana-creds
+                - name: GF_SECURITY_ADMIN_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      key: GF_SECURITY_ADMIN_PASSWORD
+                      name: grafana-creds 
   route:
     spec: {}
   config:
