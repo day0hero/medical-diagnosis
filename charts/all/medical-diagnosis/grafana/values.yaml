@@ -17,6 +17,7 @@ dataSources:
   type: mysql
   name: MySQL
   access: proxy
+  url: xraylabdb
 
 job:
   image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest

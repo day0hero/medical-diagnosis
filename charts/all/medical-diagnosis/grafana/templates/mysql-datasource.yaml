@@ -13,7 +13,7 @@ spec:
     type: {{ .Values.dataSources.type }}
     name: {{ .Values.dataSources.name }}
     access: {{ .Values.dataSources.access }}
-    url: ${GF_DATASRC_URL}
+    url: {{ .Values.dataSources.url }}
     database: ${GF_DATASRC_DB}
     user: ${GF_DATASRC_USER}
     secureJsonData:
