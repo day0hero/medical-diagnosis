@@ -175,4 +175,4 @@ spec:
     }
   plugins:
     - name: ryantxu-ajax-panel
-      version: 0.0.7-dev
+      version: 0.1.0

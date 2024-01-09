@@ -1253,4 +1253,4 @@ spec:
   - name: larona-epict-panel
     version: 1.2.2
   - name: ryantxu-ajax-panel
-    version: 0.0.7-dev
+    version: 0.1.0
