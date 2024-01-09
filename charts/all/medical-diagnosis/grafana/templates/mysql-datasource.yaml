@@ -6,6 +6,22 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PostSync
 spec:
+  valuesFrom:
+    - targetPath: "user"
+      valueFrom:
+        secretKeyRef:
+          name: grafana-creds
+          key: GF_DATASRC_USER
+    - targetPath: "database"
+      valueFrom:
+        secretKeyRef:
+          name: grafana-creds
+          key: GF_DATASRC_DB
+    - targetPath: "secureJsonData.password"
+      valueFrom:
+        secretKeyRef:
+          name: grafana-creds
+          key: GF_DATASRC_PASSWORD
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
