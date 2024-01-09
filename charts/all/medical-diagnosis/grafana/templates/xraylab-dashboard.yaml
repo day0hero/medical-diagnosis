@@ -1251,6 +1251,6 @@ spec:
     }
   plugins:
   - name: larona-epict-panel
-    version: 1.2.2
+    version: 2.0.6
   - name: ryantxu-ajax-panel
     version: 0.1.0
