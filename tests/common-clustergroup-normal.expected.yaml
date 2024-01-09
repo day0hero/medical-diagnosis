@@ -249,11 +249,11 @@ data:
       clusterPlatform: aws
       clusterVersion: "4.12"
       datacenter:
-        cloudProvider: PROVIDE_CLOUDPROVIDER
-        clustername: PROVIDE_CLUSTERNAME
-        domain: PROVIDE_DOMAIN
-        region: PROVIDE_REGION
-        storageClassName: PROVIDE_STORAGECLASS_NAME
+        cloudProvider: AWS
+        clustername: md414
+        domain: aws.validatedpatterns.io
+        region: us-west-2
+        storageClassName: gp3-csi
       extraValueFiles: []
       hubClusterDomain: apps.hub.example.com
       localClusterDomain: apps.region.example.com
@@ -271,7 +271,7 @@ data:
         namespace: xraylab-1
         s3:
           bucketBaseName: xray-source
-          bucketSource: PROVIDE_BUCKETSOURCE
+          bucketSource: validated-patterns-md-xray
     main:
       clusterGroupName: hub
       git:

@@ -74,7 +74,7 @@ spec:
     requests:
       storage: 1Gi
 ##storageClassName: 
-  storageClassName: PROVIDE_STORAGECLASS_NAME
+  storageClassName: gp3-csi
   volumeMode: Filesystem
 ---
 # Source: xraydb/templates/service.yaml
