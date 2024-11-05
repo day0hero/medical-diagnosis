@@ -1,5 +1,5 @@
 global:
-  pattern: xray
+  pattern: medical-diagnosis
 
   options:
     useCSV: False
