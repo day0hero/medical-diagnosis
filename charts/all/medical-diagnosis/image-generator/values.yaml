@@ -1,13 +1,8 @@
 global:
   xraylab:
-    namespace: xraylab-1
     s3:
       bucketSource: ""
       bucketBaseName: ""
-  datacenter:
-    clustername: ""
-    region: ""
-
 # We don't want image-generator to run constantly - so replicaCount defaults to 0
 # oc scale deploy/image-generator --replicas=1 to scale up
 replicaCount: 0
