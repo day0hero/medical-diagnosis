@@ -1,10 +1,7 @@
 global:
   xraylab:
-    namespace: xraylab-1
     s3:
       bucketBaseName: xray-source
-  datacenter:
-    clustername: gitops
 
 secretStore:
   name: vault-backend
@@ -49,14 +46,14 @@ rbac:
         - "get"
         - "list"
         - "watch"
-    - name: grafana-view-deploymentconfigs
+    - name: grafana-view-deployments
       apiGroups: 
-        - apps.openshift.io
+        - apps
       scope:
         cluster: false
         namespace: xraylab-1
       resources:
-        - deploymentconfigs
+        - deployments
       verbs:
         - "get"
         - "list"
@@ -98,7 +95,7 @@ rbac:
       roleRef:
         kind: ClusterRole
         name: cluster-monitoring-view
-    - name: grafana-view-deploymentconfigs
+    - name: grafana-view-deployments
       scope:
         cluster: false
         namespace: xraylab-1
@@ -109,4 +106,4 @@ rbac:
         apiGroup: ""
       roleRef:
         kind: Role
-        name: grafana-view-deploymentconfigs
+        name: grafana-view-deployments

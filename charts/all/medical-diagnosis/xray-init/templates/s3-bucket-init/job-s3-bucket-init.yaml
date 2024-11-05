@@ -2,7 +2,7 @@ kind: Job
 apiVersion: batch/v1
 metadata:
   name: bucket-init
-  namespace: '{{ .Values.global.xraylab.namespace }}'
+  namespace: xraylab-1
   annotations:
     argocd.argoproj.io/hook: Sync
     argocd.argoproj.io/sync-wave: "15"
@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: bucket-init
-          image: quay.io/thoth-station/s2i-generic-data-science-notebook:v0.0.4
+          image: {{ .Values.job.bucketInitImage }}
           env:
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
@@ -39,6 +39,6 @@ spec:
       dnsPolicy: ClusterFirst
       activeDeadlineSeconds: 900
       restartPolicy: Never
-      serviceAccount: {{ .Values.global.xraylab.namespace }}-sa
-      serviceAccountName: {{ .Values.global.xraylab.namespace }}-sa
+      serviceAccount: xraylab-1-sa
+      serviceAccountName: xraylab-1-sa
       terminationGracePeriodSeconds: 60

@@ -2,7 +2,7 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDatasource
 metadata:
   name: mysql-grafana-datasource
-  namespace: {{ .Values.global.xraylab.namespace }}
+  namespace: xraylab-1
   annotations:
     argocd.argoproj.io/hook: PostSync
 spec:

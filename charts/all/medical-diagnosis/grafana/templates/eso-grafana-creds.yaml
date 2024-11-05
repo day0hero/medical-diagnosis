@@ -3,7 +3,7 @@ apiVersion: "external-secrets.io/v1beta1"
 kind: ExternalSecret
 metadata:
   name: grafana-creds-external-secret
-  namespace: {{ .Values.global.xraylab.namespace }}
+  namespace: xraylab-1
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:

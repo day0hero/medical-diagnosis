@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
   name: job-wait-for-database
-  namespace: {{ .Values.global.xraylab.namespace }}
+  namespace: xraylab-1
 spec:
   template:
     spec:
@@ -14,10 +14,10 @@ spec:
         - /bin/bash
         - -c
         - |
-          oc wait --for=condition=Available=true deploymentconfig/xraylabdb -n {{ .Values.global.xraylab.namespace }} --timeout=900s
+          oc wait --for=condition=Available=true deployment/xraylabdb -n xraylab-1 --timeout=900s
         name: wait-for-xraylab-database
       dnsPolicy: ClusterFirst
       restartPolicy: Never
-      serviceAccount: {{ .Values.global.xraylab.namespace }}-sa
-      serviceAccountName: {{ .Values.global.xraylab.namespace }}-sa
+      serviceAccount: xraylab-1-sa
+      serviceAccountName: xraylab-1-sa
       terminationGracePeriodSeconds: 60

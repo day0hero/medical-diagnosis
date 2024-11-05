@@ -2,7 +2,7 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: Grafana
 metadata:
   name: xraylab-grafana
-  namespace: {{ .Values.global.xraylab.namespace }}
+  namespace: xraylab-1
   annotations:
     argocd.argoproj.io/sync-wave: "1"
   labels:
