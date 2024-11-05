@@ -23,7 +23,6 @@ app:
 images:
   bucketSource: xray-source
   bucketBaseName: xray-source
-#
 
 #The following RBAC section is just scaffolding in case you wanted to create your own RBAC policies
 rbac:
