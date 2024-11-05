@@ -1,32 +1,25 @@
-kind: DeploymentConfig
-apiVersion: apps.openshift.io/v1
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: image-server
-  namespace: "{{ .Values.global.xraylab.namespace }}"
-  annotations:
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
-    argocd.argoproj.io/sync-wave: "10"
+  labels:
+    app: {{ .Values.app.name }}
+  name: {{ .Values.app.name }}
+  namespace: xraylab-1
 spec:
-  triggers:
-    - type: ImageChange
-      imageChangeParams:
-        automatic: true
-        containerNames:
-          - image-server
-        from:
-          kind: ImageStreamTag
-          name: image-server:latest
-    - type: ConfigChange
-  replicas: 1
-  revisionHistoryLimit: 3
+  replicas: {{ default 1 .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        name: image-server
+        app: {{ .Values.app.name }}
     spec:
       containers:
-        - name: image-server
-          image: image-server:latest
+        - name: {{ .Values.app.name }}
+          image: {{ .Values.app.image }}
           env:
             - name: database-user
               valueFrom:
