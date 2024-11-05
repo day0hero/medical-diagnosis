@@ -8,6 +8,15 @@ global:
     clustername: ""
     region: ""
 
+# We don't want image-generator to run constantly - so replicaCount defaults to 0
+# oc scale deploy/image-generator --replicas=1 to scale up
+replicaCount: 0
+
+# deploymentConfigs are deprecated, so we are no longer using imageStream tag after conversion to deployments.
+app:
+  name: image-generator
+  image: quay.io/hybridcloudpatterns/xraylab-image-generator:latest
+
 #md2.0 scaffolding for values
 #https://github.com/red-hat-data-services/jumpstart-library/blob/main/demo1-xray-pipeline/manual_deployment/deployment/02_config-maps.yaml
 #From jumpstart-library
@@ -15,13 +24,6 @@ images:
   bucketSource: xray-source
   bucketBaseName: xray-source
 #
-
-#ImageStream values:
-imageStream:
-  tags:
-    name: latest
-  from:
-    name: "quay.io/rh-data-services/xraylab-image-generator:latest"
 
 #The following RBAC section is just scaffolding in case you wanted to create your own RBAC policies
 rbac:
