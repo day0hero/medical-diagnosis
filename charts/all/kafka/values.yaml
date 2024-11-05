@@ -35,3 +35,8 @@ zookeeper:
   replicas: 3
   storage:
     type: ephemeral
+
+kafkaSource:
+  serviceOdfUrl: "http://rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local"
+  externalOdfUrl: "https://s3-rgw-openshift-storage"
+
