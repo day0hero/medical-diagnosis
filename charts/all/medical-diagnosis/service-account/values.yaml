@@ -1,6 +1,1 @@
-global:
-  xraylab:
-    namespace: xraylab-1
-
-serviceAccount:
-  name: ""
+serviceAccountName: xraylab-1-sa
