@@ -19,6 +19,13 @@ images:
   bucketSource: xray-source
   bucketBaseName: xray-source
 
+riskAssessment:
+  image: quay.io/hybridcloudpatterns/xraylab-risk-assessment:latest
+
+kafkaSource:
+  serviceOdfUrl: "http://rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local"
+  externalOdfUrl: "https://s3-rgw-openshift-storage"
+
 #The following RBAC section is just scaffolding in case you wanted to create your own RBAC policies
 rbac:
   roles:

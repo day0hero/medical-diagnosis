@@ -7,4 +7,4 @@ metadata:
     argocd.argoproj.io/sync-wave: "-4"
 data:
   url: "{{ .Values.kafkaSource.serviceOdfUrl }}"
-  url-external: "{{ .Values.kafkaSource.externalOdfUrl }}.{{ .Values.global.clusterDomain }}"
+  url-external: "{{ .Values.kafkaSource.externalOdfUrl }}.{{ .Values.global.localClusterDomain }}"
