@@ -19,12 +19,3 @@ main:
   multiSourceConfig:
     enabled: true
     clusterGroupChartVersion: 0.9.*
-
-# Example Configuration
-  #datacenter:
-  #  cloudProvider: aws
-  #  storageClassName: gp2
-  #  region: us-east-1
-  #  clustername: example-sample
-  #  domain: patterns.redhat.com
-
