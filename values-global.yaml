@@ -6,16 +6,7 @@ global:
     syncPolicy: Automatic
     installPlanApproval: Automatic
 
-  datacenter:
-    cloudProvider: AWS
-    storageClassName: gp3-csi
-    region: us-west-2
-    clustername: mdupdate
-    domain: aws.validatedpatterns.io
-
   xraylab:
-    namespace: "xraylab-1"
-
     s3:
       # Values for S3 bucket access
       # bucketSource: "provide s3 bucket name where images are stored"
