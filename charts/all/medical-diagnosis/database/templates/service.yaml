@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ .Values.database.name }}
-  namespace: "{{ .Values.global.xraylab.namespace }}"
+  namespace: xraylab-1
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:

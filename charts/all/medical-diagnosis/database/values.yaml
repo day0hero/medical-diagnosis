@@ -1,9 +1,5 @@
 global:
-  xraylab:
-    namespace: xraylab-1
-  datacenter:
-    storageClassName: gp2
-    region: us-east-1
+  storageClassName: gp3-csi
 
 secretStore:
   name: vault-backend
@@ -12,6 +8,15 @@ secretStore:
 xraylabsecret:
   key: secret/data/hub/xraylab
 
+# Application: Database Config
 database:
+  replicas: 1
   name: xraylabdb
   image: registry.redhat.io/rhel8/mariadb-103:latest
+
+# Persistent Volume Claim Configuration
+pvc:
+  requests:
+    storage: 1Gi
+  accessModes: ReadWriteOnce
+  volumeMode: Filesystem

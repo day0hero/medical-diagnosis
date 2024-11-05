@@ -1,46 +1,18 @@
----
-kind: PersistentVolumeClaim
-apiVersion: v1
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: {{ .Values.database.name }}
-  namespace: "{{ .Values.global.xraylab.namespace }}"
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=True
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-##storageClassName: {{ .Values.storageClassName }}
-  storageClassName: {{ .Values.global.datacenter.storageClassName }}
-  volumeMode: Filesystem
----
-kind: DeploymentConfig
-apiVersion: apps.openshift.io/v1
-metadata:
-  name: {{ .Values.database.name }}
-  namespace: "{{ .Values.global.xraylab.namespace }}"
   labels:
     app: {{ .Values.database.name }}
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=True
+  name: {{ .Values.database.name }}
+  namespace: xraylab-1
 spec:
-  strategy:
-    type: Recreate
-    recreateParams:
-      timeoutSeconds: 600
-    resources: {}
-    activeDeadlineSeconds: 21600
-  triggers:
-    - type: ConfigChange
-  replicas: 1
-  revisionHistoryLimit: 3
-  test: false
+  replicas: {{ default 1 .Values.replicaCount }}
   selector:
-    app: {{ .Values.database.name }}
+    matchLabels:
+      app: {{ .Values.database.name }}
   template:
     metadata:
       labels:
