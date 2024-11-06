@@ -17,7 +17,7 @@ metadata:
 subjects:
 - kind: {{ $value.subjects.kind | default "ServiceAccount" }}
   name: {{ $value.subjects.name }}
-  namespace: {{ $value.subjects.namespace | default xraylab-1 }}
+  namespace: {{ $value.subjects.namespace | default "xraylab-1" }}
   apiGroup: ""
 roleRef:
   kind: {{ $value.roleRef.kind }}
