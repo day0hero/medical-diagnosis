@@ -8,12 +8,10 @@ clusterGroup:
   isHubCluster: true
 
   namespaces:
-  - open-cluster-management
   - openshift-serverless
   - openshift-storage
   - xraylab-1
   - knative-serving
-  - staging
   - vault
   - golang-external-secrets
 
