@@ -1,21 +1,16 @@
-global:
-  xraylab:
-    namespace: xraylab-demo
 kafka:
-  app: "kafdrop"
+  app: kafdrop
+  image: "docker.io/obsidiandynamics/kafdrop:latest"
+  env:
+    - name: KAFKA_BROKERCONNECT
+      value: "xray-cluster-kafka-0.xray-cluster-kafka-brokers.xraylab-1.svc:9092"
+    - name: JVM_OPTS
+      value: "-Xms32M -Xmx64M"
+    - name: SERVER_SERVLET_CONTEXTPATH
+      value: "/"
   cluster:
     name: "xray-cluster"
     replicas: 3
-  deployment:
-    replicas: 1
-    image: "docker.io/obsidiandynamics/kafdrop:latest"
-    env:
-      - name: KAFKA_BROKERCONNECT
-        value: "xray-cluster-kafka-0.xray-cluster-kafka-brokers.xraylab-1.svc:9092"
-      - name: JVM_OPTS
-        value: "-Xms32M -Xmx64M"
-      - name: SERVER_SERVLET_CONTEXTPATH
-        value: "/"
   route:
     subdomain: ""
     weight: 100
