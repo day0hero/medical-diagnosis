@@ -25,6 +25,8 @@ riskAssessment:
   image: quay.io/hybridcloudpatterns/xraylab-risk-assessment:latest
 
 rbac:
+  serviceAccountName: "xraylab-1-sa"
+  createServiceAccount: true
   roles:
     - name: view-odf-storageclusters
       createRole: true

@@ -19,6 +19,6 @@ spec:
         name: wait-odf-storagecluster-complete
       dnsPolicy: ClusterFirst
       restartPolicy: Never
-      serviceAccount: xraylab-1-sa
-      serviceAccountName: xraylab-1-sa
+      serviceAccount: {{ .Values.rbac.serviceAccountName }}
+      serviceAccountName: {{ .Values.rbac.serviceAccountName }}
       terminationGracePeriodSeconds: 60
