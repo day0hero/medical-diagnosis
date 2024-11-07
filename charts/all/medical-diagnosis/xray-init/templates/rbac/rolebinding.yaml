@@ -16,7 +16,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "-15"
 subjects:
 - kind: {{ $value.subjects.kind | default "ServiceAccount" }}
-  name: {{ $value.subjects.name }}
+  name: {{ $.Values.rbac.serviceAccountName }}
   namespace: {{ $value.subjects.namespace | default "xraylab-1" }}
   apiGroup: ""
 roleRef:
