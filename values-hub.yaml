@@ -76,12 +76,6 @@ clusterGroup:
       project: medical-diagnosis
       path: charts/all/kafdrop
 
-    service-account:
-      name: xraylab-service-account
-      namespace: xraylab-1
-      project: medical-diagnosis
-      path: charts/all/medical-diagnosis/service-account
-
     xraylab-init:
       name: xraylab-init
       namespace: xraylab-1
