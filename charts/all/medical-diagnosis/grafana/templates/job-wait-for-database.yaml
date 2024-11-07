@@ -18,6 +18,6 @@ spec:
         name: wait-for-xraylab-database
       dnsPolicy: ClusterFirst
       restartPolicy: Never
-      serviceAccount: xraylab-1-sa
-      serviceAccountName: xraylab-1-sa
+      serviceAccount: {{ .Values.rbac.serviceAccountName }}
+      serviceAccountName: {{ .Values.rbac.serviceAccountName }}
       terminationGracePeriodSeconds: 60

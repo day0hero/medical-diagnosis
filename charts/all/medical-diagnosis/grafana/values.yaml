@@ -1,5 +1,7 @@
 global:
   xraylab:
+#Service Account is defined in $gitroot/values-global.yaml
+    serviceAccountName: ''
     s3:
       bucketBaseName: xray-source
 
@@ -19,6 +21,8 @@ job:
   image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
 
 rbac:
+  serviceAccountName: "grafana-sa"
+  createServiceAccount: true
   roles:
     - name: grafana-mgmt
       apiGroups:
