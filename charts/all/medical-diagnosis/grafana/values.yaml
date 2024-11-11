@@ -38,6 +38,19 @@ rbac:
         - "patch"
         - "create"
         - "update"
+    - name: grafana-serviceAccount-token
+      apiGroups:
+        - '""'
+      scope:
+        cluster: false
+        namespace: xraylab-1
+      resources:
+        - "serviceaccounts/tokens"
+      verbs:
+        - "get"
+        - "list"
+        - "create"
+        - "update"
     - name: grafana-read-secrets
       apiGroups:
         - '""'
