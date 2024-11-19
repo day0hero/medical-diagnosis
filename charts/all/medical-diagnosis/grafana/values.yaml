@@ -1,7 +1,5 @@
 global:
   xraylab:
-#Service Account is defined in $gitroot/values-global.yaml
-    serviceAccountName: ''
     s3:
       bucketBaseName: xray-source
 
@@ -82,7 +80,7 @@ rbac:
         namespace: xraylab-1
       subjects:
         kind: ServiceAccount
-        name: xraylab-grafana-sa
+        name: grafana-sa
         namespace: xraylab-1
         apiGroup: ""
       roleRef:
@@ -94,7 +92,7 @@ rbac:
         namespace: xraylab-1
       subjects:
         kind: ServiceAccount
-        name: xraylab-grafana-sa
+        name: grafana-sa
         namespace: xraylab-1
         apiGroup: ""
       roleRef:
@@ -106,7 +104,7 @@ rbac:
         namespace: ""
       subjects:
         kind: ServiceAccount
-        name: xraylab-grafana-sa
+        name: grafana-sa
         namespace: xraylab-1
         apiGroup: ""
       roleRef:
@@ -124,3 +122,15 @@ rbac:
       roleRef:
         kind: Role
         name: grafana-view-deployments
+    - name: grafana-image-puller
+      scope:
+        cluster: false
+        namespace: xraylab-1
+      subjects:
+        kind: ServiceAccount
+        name: grafana-sa
+        namespace: xraylab-1
+        apiGroup: "image.openshift.io"
+      roleRef:
+        kind: ClusterRole
+        name: "system:image-puller"
