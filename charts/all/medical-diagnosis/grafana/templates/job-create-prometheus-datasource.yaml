@@ -14,9 +14,9 @@ spec:
         - /bin/bash
         - -c
         - |
-          TOKEN=$(oc create token {{ .Values.rbac.serviceAccountName }}-token --duration=$((365*24))h)
+          #TOKEN=$(oc create token {{ .Values.rbac.serviceAccountName }}-token --duration=$((365*24))h)
           #SECRET=$(oc get secret | grep xraylab-grafana-sa-token | head -n1 | awk '{print $1}')
-          #TOKEN=$(oc extract secret/$SECRET --keys=token --to=-)
+          TOKEN=$(oc extract secret/{{ .Values.rbac.serviceAccountName }}-token --keys=token --to=-)
           cat <<EOF | oc create -f -
            apiVersion: grafana.integreatly.org/v1beta1
            kind: GrafanaDatasource
