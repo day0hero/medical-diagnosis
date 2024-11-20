@@ -1,10 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: {{ .Values.app.name }}
   name: {{ .Values.app.name }}
   namespace: xraylab-1
+  labels:
+    app: {{ .Values.app.name }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   replicas: {{ default 1 .Values.replicaCount }}
   selector:
